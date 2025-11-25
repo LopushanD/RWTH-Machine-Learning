@@ -96,7 +96,12 @@ def compute_polynomial_basis_funcs(x: NDArray,
     #functions take care of this
 
     #####Insert your code here for subtask 2b#####
-
+    # higherst_power = 5 -> (0,6,6) -> 0,1,2,3,4,5
+    # (v ... v^M ; 1)
+    powers = np.arange(1,highest_power+1)
+    powers = powers[np.newaxis,:]
+    # (v ... v^M ; N)
+    phi_of_x = x[:,None]** powers
     assert phi_of_x.shape == (num_samples, highest_power)
     return phi_of_x
 
@@ -149,6 +154,8 @@ def fit_linear_model_with_ridge_regression(
     #(bias trick) and then implement the lecture's formula    
 
     #####Insert your code here for subtask 2c#####
-    assert w.shape == (x.shape[1],)
-    return w, bias
+    # assert w.shape == (x.shape[1],)
+    # return w, bias
+    #Tmp placeholder, just to see results without actual implementation of the function
+    return fit_linear_model(x,y)
 
